@@ -5,25 +5,21 @@ import '../providers/incident_provider.dart';
 class AdminDashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Admin Dashboard'),
-        backgroundColor: Colors.purpleAccent,
-        elevation: 0,
-      ),
-      body: Consumer<IncidentProvider>(
-        builder: (context, provider, _) {
-          final totalIncidents = provider.getTotalIncidents();
-          final activeIncidents = provider.getActiveIncidents();
-          final resolvedIncidents = provider.getResolvedIncidents();
-          final criticalIncidents = provider.getCriticalCount();
-          final highIncidents = provider.getHighCount();
-          final mediumIncidents = provider.getMediumCount();
-          final lowIncidents = provider.getLowCount();
+    return Container(
+      color: Colors.grey[50],
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Consumer<IncidentProvider>(
+          builder: (context, provider, _) {
+            final totalIncidents = provider.getTotalIncidents();
+            final activeIncidents = provider.getActiveIncidents();
+            final resolvedIncidents = provider.getResolvedIncidents();
+            final criticalIncidents = provider.getCriticalCount();
+            final highIncidents = provider.getHighCount();
+            final mediumIncidents = provider.getMediumCount();
+            final lowIncidents = provider.getLowCount();
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
-            child: Column(
+            return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Welcome Section
@@ -104,11 +100,10 @@ class AdminDashboardScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 _StatusCard('Total Reported', totalIncidents, Colors.blue),
                 _StatusCard('In Progress', activeIncidents, Colors.orange),
-                _StatusCard('Resolved', resolvedIncidents, Colors.green),
-              ],
-            ),
-          );
-        },
+                _StatusCard('Resolved', resolvedIncidents, Colors.green),              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -179,35 +174,26 @@ class _PriorityBar extends StatelessWidget {
             width: 70,
             child: Text(
               label,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
           ),
           Expanded(
-            child: Container(
-              height: 24,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    width: double.infinity * percentage,
-                    decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                  ),
-                ],
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                value: percentage,
+                minHeight: 24,
+                backgroundColor: Colors.grey[300],
+                valueColor: AlwaysStoppedAnimation<Color>(color),
               ),
             ),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 16),
           SizedBox(
-            width: 30,
+            width: 35,
             child: Text(
               count.toString(),
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               textAlign: TextAlign.right,
             ),
           ),
