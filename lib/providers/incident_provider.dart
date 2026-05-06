@@ -4,18 +4,17 @@ import '../models/incident.dart';
 class IncidentProvider extends ChangeNotifier {
   List<Incident> _incidents = [];
   List<Incident> _offlineIncidents = [];
-
   List<Incident> get incidents {
     final allIncidents = [..._incidents, ..._offlineIncidents];
     // Priority Handling Logic: Sort by priority + time
     allIncidents.sort((a, b) {
-      int priorityOrder = {
+      final priorityOrder = <String, int>{
         'Critical': 0,
         'High': 1,
         'Medium': 2,
         'Low': 3
       };
-      int priorityCompare = priorityOrder[a.priority]!
+      final priorityCompare = priorityOrder[a.priority]!
           .compareTo(priorityOrder[b.priority]!);
 
       if (priorityCompare != 0) return priorityCompare;
