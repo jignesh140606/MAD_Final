@@ -1,0 +1,97 @@
+Develop a Flutter-based Smart Emergency Response & Incident Reporting App that allows users to
+report incidents, share location details, track response status, and enables administrators to manage and
+prioritize emergency cases with offline-first support.
+In campuses, residential areas, and workplaces, emergencies such as accidents, medical issues, or safety
+concerns often go unreported or are delayed due to a lack of a structured system. Common challenges include:
+● Delayed reporting of incidents
+● No centralized system to track emergencies
+● Difficulty in prioritizing critical cases
+● Lack of real-time visibility for authorities
+● Network issues during emergencies
+To address these issues, a mobile solution is required that allows users to quickly report incidents, share
+essential details, and track response progress, while administrators can prioritize and manage incidents
+effectively.
+Design and implement a mobile application that:
+● Enables users to report incidents quickly
+● Captures essential details, including location and type
+● Allows admins to manage and prioritize incidents
+● Tracks the status of each reported case
+● Supports offline reporting with later synchronization
+Functional Requirements
+1. Incident Reporting Module
+● Users can report an incident with:
+o Incident Title
+o Description
+o Category (Medical, Fire, Security, etc.)
+o Priority (Low / Medium / High / Critical)
+o Location (manual entry or simulated GPS)
+● Generate a unique Incident ID
+2. Incident Tracking Module
+● Users can view:
+o Status (Reported / In Progress / Resolved)
+o Time of reporting
+o Assigned responder
+3. Admin Management Module
+● Admin can:
+o View all incidents
+o Prioritize incidents based on severity
+o Update status
+o Assign responders
+4. Priority Handling Logic
+● Automatically highlight:
+o Critical incidents
+● Sort incidents based on:
+o Priority + Time
+5. Incident Dashboard
+● Display:
+o Total incidents
+o Active vs resolved cases
+o Priority-wise distribution
+
+● Visual indicators for urgency
+6. Search & Filter Module
+● Search incidents by ID or keyword
+● Filter by:
+o Status
+o Priority
+o Category
+7. Offline Functionality
+● Allow reporting without internet
+● Store incidents locally
+● Sync data when the connection is restored
+8. Validation & Error Handling
+● Validate required fields
+● Prevent empty or invalid reports
+● Provide clear alerts and confirmations
+Technical Requirements
+● Framework: Flutter
+● State Management: Provider / Riverpod / Bloc
+● Local Storage: Hive / SQLite
+● Optional Backend: Firebase / REST API
+● Modular architecture (Incident, Admin, Dashboard modules)
+● Clean and maintainable code
+UI/UX Requirements
+Design a minimum of five screens:
+1. Incident Reporting Screen
+2. Incident List Screen
+3. Incident Details Screen
+4. Admin Dashboard Screen
+5. Search & Filter Screen
+● Use color coding for priority levels (e.g., Red for Critical)
+● Ensure fast and simple reporting flow
+● Provide clear visual hierarchy for urgent cases
+GitHub Requirement
+● Maintain a public GitHub repository
+● Minimum 4 commits:
+1. Project Initialization
+2. UI Implementation
+3. Core Logic (Incident + Priority Handling)
+4. Offline Storage & Final Enhancements
+
+Submission Requirements
+PDF Name: StudentID_EmergencyResponseApp.pdf
+Must Include:
+● Screenshots of all UI screens
+● Description of implemented modules
+● Explanation of priority handling logic
+● Conclusion
