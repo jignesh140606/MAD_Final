@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
-import 'incident_reporting_screen.dart';
+import 'user_report_incident_screen.dart';
 import 'incident_list_screen.dart';
 import 'search_filter_screen.dart';
 
@@ -41,14 +41,13 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
           ),
         ],
       ),
-      body: _userScreens[_selectedIndex],
-      floatingActionButton: _selectedIndex == 0
+      body: _userScreens[_selectedIndex],      floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton.extended(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => IncidentReportingScreen(),
+                    builder: (_) => UserReportIncidentScreen(),
                   ),
                 );
               },
